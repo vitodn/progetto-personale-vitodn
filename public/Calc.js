@@ -72,7 +72,7 @@ function addHistoryEntry(expression, result){
     //Aggiunge alla sezione cronologia l'espressione e il risultato
     historyEntry = entryTemplate.cloneNode();
     historyEntry.removeAttribute("id");
-    historyEntry.className += " historyEntry";
+    historyEntry.className += " historyEntry"; //La proprietà className dell'interfaccia history ottiene e imposta il valore dell'attributo class dell'elemento specificato
     historyEntry.appendChild(expSpan);
     historyEntry.appendChild(document.createTextNode(" = "))
     historyEntry.appendChild(resSpan);
@@ -92,8 +92,8 @@ var addEvent = function(object, type, callback) {
 };
 
 function setHistoryHeight(){
-    var wrapHeight = document.getElementById("wrap").offsetHeight,
-        windowHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0),
+    var wrapHeight = document.getElementById("wrap").offsetHeight, //crea container wrapper
+        
         calcHeight = document.getElementById("calc").clientHeight,
         history = document.getElementById("history");
     if (windowHeight > 500) // Si considerano i margini 
