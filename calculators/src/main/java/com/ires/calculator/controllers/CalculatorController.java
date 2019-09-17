@@ -1,9 +1,9 @@
-import com.ires.computers.models.Calculator;
-import com.ires.computers.repositories.CalculatorRepository;
-import com.ires.computers.repositories.NotFoundException;
-import com.ires.computers.viewmodels.CalculatorExpression;
-import com.ires.computers.viewmodels.CalculatorNew;
-import com.ires.computers.viewmodels.CalculatorResult;
+
+import com.ires.calculator.repositories.CalculatorRepository;
+import com.ires.calculator.repositories.NotFoundException;
+import com.ires.calculator.viewmodels.CalculatorExpression;
+import com.ires.calculator.viewmodels.CalculatorNew;
+import com.ires.calculator.viewmodels.CalculatorResult;
 import java.beans.Expression;
 import java.util.List;
 import static java.util.stream.Collectors.toList;

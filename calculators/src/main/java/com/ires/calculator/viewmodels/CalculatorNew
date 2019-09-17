@@ -1,0 +1,37 @@
+
+public class CalculatorNew
+{
+    public static Calculator map(CalculatorNew viewModel)
+    {
+        if (viewModel == null) {
+            return null;
+        }
+        
+        var model = new Calculator();
+        model.setName(viewModel.getExpression());
+        model.setPrice(viewModel.getResult());
+        return model;
+    }
+    
+    @NotBlank(message="The Computer's Name is required!")
+    private String name;
+    
+    @Min(value=0, message="The Computer's Price cannot be less than 0!")
+    private double price;
+    
+    private boolean isInStock;
+    
+    private LocalDate releaseDate;
+
+    public String getExpression() {
+        return expression;
+    }
+    public void setName(String expression) {
+        this.expression = expression;
+    }
+
+    public double getResult() {
+        return result;
+    }
+    
+}
