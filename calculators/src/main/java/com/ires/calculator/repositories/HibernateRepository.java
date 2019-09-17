@@ -1,9 +1,7 @@
-import com.ires.computers.models.Computer;
-import com.ires.computers.viewmodels.ComputerNew;
-import com.ires.computers.viewmodels.ComputerRow;
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.ArrayList;
+package com.ires.calculator.repositories;
+import com.ires.calculator.models.Calculator;
+import com.ires.calculator.viewmodels.CalculatorNew;
+import com.ires.calculator.viewmodels.ComputerExpression;
 import java.util.List;
 import static java.util.stream.Collectors.toList;
 import java.util.stream.IntStream;
@@ -20,7 +18,7 @@ public class HibernateRepository implements CalculatorRepository
     public HibernateRepository() {
         sessionFactory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Computer.class)
+                .addAnnotatedClass(Calculator.class)
                 .buildSessionFactory();
     }
     
@@ -61,7 +59,7 @@ public class HibernateRepository implements CalculatorRepository
     }
 
     @Override
-    public void put(Computer viewModel) throws NotFoundException {
+    public void put(Calculator viewModel) throws NotFoundException {
         try (var session = sessionFactory.openSession()) {
             var trans = session.beginTransaction();
             session.update(viewModel);
@@ -73,7 +71,7 @@ public class HibernateRepository implements CalculatorRepository
     public void delete(int id) throws NotFoundException {
         try (var session = sessionFactory.openSession()) {
             var trans = session.beginTransaction();
-            var model = session.get(Computer.class, id);
+            var model = session.get(Calculator.class, id);
             session.delete(model);
             trans.commit();
         }
